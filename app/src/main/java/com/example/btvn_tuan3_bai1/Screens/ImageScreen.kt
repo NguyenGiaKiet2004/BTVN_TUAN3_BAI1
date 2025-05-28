@@ -3,13 +3,11 @@ package com.example.btvn_tuan3_bai1.Screens
 import android.content.Intent
 import android.graphics.Color.parseColor
 import android.net.Uri
-import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -38,15 +36,15 @@ import androidx.compose.foundation.text.ClickableText
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
-import java.nio.file.WatchEvent
 
 @Composable
-fun ImageScreen(){
-    Image1Screen(contentScale = ContentScale.Fit)
+fun ImageScreen(BackMenu:()-> Unit){
+    Image1Screen(BackMenu,
+            contentScale = ContentScale.Fit)
 }
 
 @Composable
-fun Image1Screen(contentScale : ContentScale){
+fun Image1Screen(BackMenu: () -> Unit, contentScale: ContentScale){
 
     val context = LocalContext.current  // Dùng để mở trình duyệt
 
@@ -83,7 +81,7 @@ fun Image1Screen(contentScale : ContentScale){
         Box(modifier = Modifier.fillMaxWidth()) {
             // Nút back ở bên trái
             IconButton(
-                onClick = {},
+                onClick = {BackMenu()},
                 modifier = Modifier.align(Alignment.CenterStart)
             ) {
                 Icon(

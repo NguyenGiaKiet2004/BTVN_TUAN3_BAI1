@@ -45,12 +45,12 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.input.KeyboardType
 
 @Composable
-fun PassWordScreen(){
-    PassWord1Screen()
+fun PassWordScreen(BackMenu:()-> Unit){
+    PassWord1Screen(BackMenu)
 }
 
 @Composable
-fun PassWord1Screen(){
+fun PassWord1Screen(BackMenu:()-> Unit){
     var password by remember { mutableStateOf("") }
     var text by remember {mutableStateOf("")}
     Column(
@@ -60,7 +60,7 @@ fun PassWord1Screen(){
         Box(modifier = Modifier.fillMaxWidth()) {
             // Nút back ở bên trái
             IconButton(
-                onClick = {},
+                onClick = {BackMenu()},
                 modifier = Modifier.align(Alignment.CenterStart)
             ) {
                 Icon(

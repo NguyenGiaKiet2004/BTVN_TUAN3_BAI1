@@ -30,13 +30,9 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-@Composable
-fun ColumnScreen(){
-    Column1Screen()
-}
 
 @Composable
-fun Column1Screen(){
+fun ColumnScreen(BackMenu:()-> Unit){
     Column(
         modifier = Modifier
             .padding(top = 40.dp, start = 20.dp, end = 20.dp) // chỉ cách đỉnh điện thoại
@@ -44,7 +40,7 @@ fun Column1Screen(){
         Box(modifier = Modifier.fillMaxWidth()) {
             // Nút back ở bên trái
             IconButton(
-                onClick = {},
+                onClick = {BackMenu()},
                 modifier = Modifier.align(Alignment.CenterStart)
             ) {
                 Icon(

@@ -35,12 +35,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TextFieldScreen(){
-    TextField1Screen()
+fun TextFieldScreen(BackMenu:()-> Unit){
+    TextField1Screen(BackMenu)
 }
 
 @Composable
-fun TextField1Screen(){
+fun TextField1Screen(BackMenu:()-> Unit){
     var text by remember { mutableStateOf("") }
     Column(
         modifier = Modifier
@@ -49,7 +49,7 @@ fun TextField1Screen(){
         Box(modifier = Modifier.fillMaxWidth()) {
             // Nút back ở bên trái
             IconButton(
-                onClick = {},
+                onClick = {BackMenu()},
                 modifier = Modifier.align(Alignment.CenterStart)
             ) {
                 Icon(

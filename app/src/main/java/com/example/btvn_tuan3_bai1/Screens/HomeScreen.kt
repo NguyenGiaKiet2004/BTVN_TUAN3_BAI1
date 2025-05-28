@@ -27,7 +27,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun HomeScreen(){
+fun HomeScreen(
+    openMenuScreen:() -> Unit
+){
 
     Column(
         modifier = Modifier.fillMaxSize(), // chiếm toàn bộ màn hình
@@ -36,7 +38,7 @@ fun HomeScreen(){
     ) {
         Logo()
         DoanVan()
-        ButtonChuyen()
+        ButtonChuyen(openMenuScreen)
     }
 }
 
@@ -86,8 +88,8 @@ fun DoanVan() {
 }
 
 @Composable
-fun ButtonChuyen(){
-    Button(onClick = { "" },
+fun ButtonChuyen(openMenuScreen:() -> Unit){
+    Button(onClick = { openMenuScreen() },
         colors = ButtonDefaults.buttonColors(
             containerColor = Color.Red,
             contentColor = Color.White,

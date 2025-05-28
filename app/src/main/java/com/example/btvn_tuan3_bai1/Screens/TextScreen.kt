@@ -1,6 +1,7 @@
 package com.example.btvn_tuan3_bai1.Screens
 
 import android.graphics.Color.parseColor
+import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,13 +32,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TextScreen(){
+fun TextScreen(BackMenu:()->Unit){
 
-    DoanVanScreen()
+    DoanVanScreen(BackMenu)
 }
 
 @Composable
-fun DoanVanScreen(){
+fun DoanVanScreen(BackMenu:()->Unit){
     Column(
         modifier = Modifier
             .padding(top = 40.dp, start = 20.dp, end = 20.dp) // chỉ cách đỉnh điện thoại
@@ -48,10 +49,13 @@ fun DoanVanScreen(){
                 onClick = {},
                 modifier = Modifier.align(Alignment.CenterStart)
             ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Back"
-                )
+                IconButton(onClick = { BackMenu() }) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Back"
+                    )
+                }
+
             }
 
             // Tiêu đề căn giữa

@@ -27,12 +27,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun RowScreen(){
-    Row1Screen()
+fun RowScreen(BackMenu:()-> Unit){
+    Row1Screen(BackMenu)
 }
 
 @Composable
-fun Row1Screen(){
+fun Row1Screen(BackMenu:()-> Unit){
     val lightBlue = Color(0xFFA9C5EB)
     val deepBlue = Color(0xFF3399FF)
     Column(
@@ -42,7 +42,7 @@ fun Row1Screen(){
         Box(modifier = Modifier.fillMaxWidth()) {
             // Nút back ở bên trái
             IconButton(
-                onClick = {},
+                onClick = {BackMenu()},
                 modifier = Modifier.align(Alignment.CenterStart)
             ) {
                 Icon(

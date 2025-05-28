@@ -25,13 +25,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-@Composable
-fun MenuScreen(){
-    MenuUIscreen()
-}
+
 
 @Composable
-fun MenuUIscreen(){
+fun MenuScreen(
+    openImageScreen:() -> Unit,
+    openTextScreen:()-> Unit,
+    openRowScreen:()-> Unit,
+    openPassWordScreen:()-> Unit,
+    openTextFieldScreen:()-> Unit,
+    openColumnScreen:() -> Unit
+){
     Column(
         modifier = Modifier
             .padding(20.dp)
@@ -64,7 +68,7 @@ fun MenuUIscreen(){
                     textAlign = TextAlign.Left
                 )
                 )
-            Button(onClick = {""},
+            Button(onClick = {openTextScreen()},
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(7.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -83,7 +87,7 @@ fun MenuUIscreen(){
                     Text(text = "Display text", color = Color.Gray)
                 }
             }
-            Button(onClick = {""},
+            Button(onClick = {openImageScreen()},
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(7.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -112,7 +116,7 @@ fun MenuUIscreen(){
                     textAlign = TextAlign.Left
                 )
                 )
-            Button(onClick = {""},
+            Button(onClick = {openTextFieldScreen()},
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(7.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -131,7 +135,7 @@ fun MenuUIscreen(){
                     Text(text = "Input field for text", color = Color.Gray)
                 }
             }
-            Button(onClick = {""},
+            Button(onClick = { openPassWordScreen()},
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(7.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -160,7 +164,7 @@ fun MenuUIscreen(){
                     textAlign = TextAlign.Left
                 )
                 )
-            Button(onClick = {""},
+            Button(onClick = {openColumnScreen()},
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(7.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -179,7 +183,7 @@ fun MenuUIscreen(){
                     Text(text = "Arrange elements vertically", color = Color.Gray)
                 }
             }
-            Button(onClick = {""},
+            Button(onClick = {openRowScreen()},
                 modifier = Modifier.fillMaxWidth(),
 
                 shape = RoundedCornerShape(7.dp),
@@ -199,7 +203,7 @@ fun MenuUIscreen(){
                     Text(text = "Arrange elements horizontally", color = Color.Gray)
                 }
             }
-            Button(onClick = {""},
+            Button(onClick = {},
                 modifier = Modifier.fillMaxWidth(),
 
                 shape = RoundedCornerShape(7.dp),
